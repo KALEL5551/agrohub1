@@ -1,0 +1,14 @@
+{
+  "name": "aficagric",
+  "private": true,
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @agritrade/web",
+    "build": "npm run build -w @agritrade/web",
+    "start": "npm run start -w @agritrade/web",
+    "lint": "npm run lint -w @agritrade/web",
+    "type-check": "npm run type-check -w @agritrade/web"
+  }
+}
