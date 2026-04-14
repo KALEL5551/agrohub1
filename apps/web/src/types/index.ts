@@ -1,4 +1,5 @@
-// This file makes `import type { X } from '@/types'` work
-// by re-exporting everything from the database types file
+// Re-exports everything so both import styles work:
+// import type { Product } from '@/types'           works
+// import type { Product } from '@/types/database'  also works
 export * from './database';
 export * from './api';

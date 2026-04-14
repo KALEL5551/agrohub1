@@ -15,7 +15,7 @@ export interface PaginatedResponse<T> {
 
 export interface PaymentInitializeRequest {
   order_id: string;
-  payment_method: 'card' | 'mobilemoney' | 'bank_transfer';
+  payment_method: 'card' | 'paypal' | 'mobilemoney' | 'bank_transfer' | 'crypto';
   currency: string;
 }
 
@@ -28,18 +28,7 @@ export interface ShippingQuoteRequest {
   origin_country: string;
   destination_country: string;
   weight_kg: number;
-  dimensions?: {
-    length: number;
-    width: number;
-    height: number;
-  };
-}
-
-export interface SupplierMatchRequest {
-  query: string;
-  category: string;
-  budget?: number;
-  country?: string;
+  dimensions?: { length: number; width: number; height: number };
 }
 
 export interface SupplierMatchResponse {
@@ -48,10 +37,6 @@ export interface SupplierMatchResponse {
     supplier_name: string;
     relevance_score: number;
     reason: string;
-    products: Array<{
-      id: string;
-      title: string;
-      price: number;
-    }>;
+    products: Array<{ id: string; title: string; price: number }>;
   }>;
 }
