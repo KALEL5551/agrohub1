@@ -9,7 +9,36 @@ import { createClient } from '@/lib/supabase/client';
 import { useAuthStore } from '@/store/auth-store';
 import { formatCurrency, formatDate } from '@/lib/utils';
 import { AGRO_SECTORS } from '@/lib/constants';
-import type { Product } from '@/types/database';
+
+// ── Inline type so we never depend on an external types file ──────────────
+interface Product {
+  id: string;
+  supplier_id: string;
+  title: string;
+  slug: string;
+  description: string;
+  category: string;
+  subcategory: string;
+  product_type?: string;
+  price: number;
+  currency: string;
+  unit: string;
+  min_order_quantity: number;
+  max_order_quantity: number | null;
+  stock_quantity: number;
+  images: string[];
+  specifications: Record<string, string>;
+  tags: string[];
+  origin_country: string;
+  listing_status: string;
+  is_featured: boolean;
+  views: number;
+  rating: number;
+  total_reviews: number;
+  trade_type?: string;
+  created_at: string;
+  updated_at: string;
+}
 
 export default function ListingsPage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -36,7 +65,7 @@ export default function ListingsPage() {
       key: 'title',
       header: 'Product',
       render: (p: Product) => {
-        const sector = AGRO_SECTORS.find(s => s.value === p.category);
+        const sector = AGRO_SECTORS.find((s) => s.value === p.category);
         return (
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-lg bg-muted flex items-center justify-center text-xl">
@@ -44,7 +73,10 @@ export default function ListingsPage() {
             </div>
             <div>
               <p className="font-medium text-sm">{p.title}</p>
-              <p className="text-xs text-muted-foreground">{p.subcategory} • {(p as Product & { product_type?: string }).product_type}</p>
+              <p className="text-xs text-muted-foreground">
+                {p.subcategory}
+                {p.product_type ? ` • ${p.product_type}` : ''}
+              </p>
             </div>
           </div>
         );
@@ -54,7 +86,9 @@ export default function ListingsPage() {
       key: 'price',
       header: 'Price',
       render: (p: Product) => (
-        <span className="font-medium">{formatCurrency(p.price, p.currency)}/{p.unit}</span>
+        <span className="font-medium">
+          {formatCurrency(p.price, p.currency)}/{p.unit}
+        </span>
       ),
     },
     {
