@@ -1,6 +1,6 @@
 import { Lock, Unlock, RefreshCw, type LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import type { EscrowStatus } from '@/types';
+import type { EscrowStatus } from '@/types/database';
 
 const escrowConfig: Record<EscrowStatus, { icon: LucideIcon; label: string; color: string }> = {
   held: { icon: Lock, label: 'Funds Held in Escrow', color: 'text-blue-600 bg-blue-50' },

@@ -1,11 +1,18 @@
+import Image from 'next/image';
+
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex">
       {/* Left panel */}
       <div className="hidden lg:flex lg:w-1/2 gradient-hero text-white p-12 flex-col justify-between">
-        <div className="flex items-center gap-2">
-          <div className="h-10 w-10 rounded-lg bg-white/20 flex items-center justify-center text-xl">🌿</div>
-          <span className="font-heading font-bold text-2xl">Agro Hub</span>
+        <div>
+          <Image
+            src="/images/agro-hub-logo.png"
+            alt="Agro Hub"
+            width={180}
+            height={54}
+            className="h-12 w-auto object-contain brightness-0 invert"
+          />
         </div>
 
         <div>

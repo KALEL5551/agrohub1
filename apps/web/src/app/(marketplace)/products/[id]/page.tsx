@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { createServerSupabaseClient } from '@/lib/supabase/server';
 import { ProductDetail } from '@/components/marketplace/product-detail';
 import { Breadcrumb } from '@/components/layout/breadcrumb';
-import type { Product } from '@/types';
+import type { Product } from '@/types/database';
 import type { Metadata } from 'next';
 
 interface Props {

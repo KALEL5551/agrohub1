@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { ShippingQuote } from '@/types';
+import type { ShippingQuote } from '@/types/database';
 
 export function useShipping() {
   const [quotes, setQuotes] = useState<ShippingQuote[]>([]);

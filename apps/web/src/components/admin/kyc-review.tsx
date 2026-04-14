@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Button, Card, Badge } from '@/components/ui';
 import { FileCheck, X, Check } from 'lucide-react';
-import type { User } from '@/types';
+import type { User } from '@/types/database';
 
 interface KycReviewProps {
   user: User;

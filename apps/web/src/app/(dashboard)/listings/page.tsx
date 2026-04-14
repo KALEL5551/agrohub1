@@ -9,7 +9,7 @@ import { createClient } from '@/lib/supabase/client';
 import { useAuthStore } from '@/store/auth-store';
 import { formatCurrency, formatDate } from '@/lib/utils';
 import { AGRO_SECTORS } from '@/lib/constants';
-import type { Product } from '@/types';
+import type { Product } from '@/types/database';
 
 export default function ListingsPage() {
   const [products, setProducts] = useState<Product[]>([]);

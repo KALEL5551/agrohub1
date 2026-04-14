@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import {
   ShoppingCart, Menu, Search, Sun, Moon,
@@ -10,7 +11,7 @@ import { Button, Avatar, Dropdown, DropdownItem, Badge } from '@/components/ui';
 import { useAuth } from '@/hooks/use-auth';
 import { useCart } from '@/hooks/use-cart';
 import { useUIStore } from '@/store/ui-store';
-import { NAV_LINKS, APP_NAME } from '@/lib/constants';
+import { NAV_LINKS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
 export function Header() {
@@ -22,15 +23,21 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
       <div className="container-main flex h-16 items-center justify-between">
-        {/* Logo + Nav */}
+
+        {/* ── LOGO ── */}
         <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="h-9 w-9 rounded-lg gradient-green flex items-center justify-center">
-              <span className="text-white font-bold text-lg">🌿</span>
-            </div>
-            <span className="font-heading font-bold text-xl hidden sm:block">{APP_NAME}</span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/images/agro-hub-logo.png"
+              alt="Agro Hub"
+              width={160}
+              height={48}
+              className="h-10 w-auto object-contain"
+              priority
+            />
           </Link>
 
+          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map(link => (
               <Link
@@ -49,7 +56,7 @@ export function Header() {
           </nav>
         </div>
 
-        {/* Right actions */}
+        {/* ── RIGHT ACTIONS ── */}
         <div className="flex items-center gap-3">
           <Link
             href="/products?search=true"

@@ -2,7 +2,7 @@
 
 import { DataTable, Badge, Avatar, Button } from '@/components/ui';
 import { ShieldCheck, ShieldX, Eye } from 'lucide-react';
-import type { User } from '@/types';
+import type { User } from '@/types/database';
 
 interface SupplierTableProps {
   suppliers: User[];

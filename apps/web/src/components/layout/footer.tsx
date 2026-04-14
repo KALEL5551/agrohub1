@@ -1,35 +1,35 @@
 import Link from 'next/link';
-import { APP_NAME } from '@/lib/constants';
+import Image from 'next/image';
 
 const footerLinks = {
   Marketplace: [
-    { href: '/products',     label: 'All Products' },
-    { href: '/cash-crops',   label: 'Cash Crops' },
-    { href: '/food-crops',   label: 'Food Crops' },
-    { href: '/livestock',    label: 'Livestock' },
-    { href: '/fisheries',    label: 'Fisheries' },
-    { href: '/coffee',       label: 'Coffee & Beverages' },
+    { href: '/products',    label: 'All Products' },
+    { href: '/cash-crops',  label: 'Cash Crops' },
+    { href: '/food-crops',  label: 'Food Crops' },
+    { href: '/livestock',   label: 'Livestock' },
+    { href: '/fisheries',   label: 'Fisheries' },
+    { href: '/coffee',      label: 'Coffee & Beverages' },
   ],
   Sectors: [
-    { href: '/sector/vegetables',       label: 'Vegetables' },
-    { href: '/sector/fruits',           label: 'Fruits' },
-    { href: '/sector/spices_herbs',     label: 'Spices & Herbs' },
-    { href: '/sector/farm_inputs',      label: 'Farm Inputs' },
-    { href: '/sector/seeds_nursery',    label: 'Seeds & Nursery' },
-    { href: '/sector/agro_processing',  label: 'Agro-Processing' },
+    { href: '/sector/vegetables',      label: 'Vegetables' },
+    { href: '/sector/fruits',          label: 'Fruits' },
+    { href: '/sector/spices_herbs',    label: 'Spices & Herbs' },
+    { href: '/sector/farm_inputs',     label: 'Farm Inputs' },
+    { href: '/sector/seeds_nursery',   label: 'Seeds & Nursery' },
+    { href: '/sector/agro_processing', label: 'Agro-Processing' },
   ],
   Company: [
-    { href: '/about',    label: 'About Us' },
-    { href: '/contact',  label: 'Contact' },
-    { href: '/blog',     label: 'Blog' },
-    { href: '/careers',  label: 'Careers' },
+    { href: '/about',   label: 'About Us' },
+    { href: '/contact', label: 'Contact' },
+    { href: '/blog',    label: 'Blog' },
+    { href: '/careers', label: 'Careers' },
   ],
   Support: [
-    { href: '/help',      label: 'Help Center' },
-    { href: '/shipping',  label: 'Shipping Info' },
-    { href: '/disputes',  label: 'Disputes' },
-    { href: '/terms',     label: 'Terms of Service' },
-    { href: '/privacy',   label: 'Privacy Policy' },
+    { href: '/help',    label: 'Help Center' },
+    { href: '/shipping',label: 'Shipping Info' },
+    { href: '/disputes',label: 'Disputes' },
+    { href: '/terms',   label: 'Terms of Service' },
+    { href: '/privacy', label: 'Privacy Policy' },
   ],
 };
 
@@ -38,16 +38,21 @@ export function Footer() {
     <footer className="border-t border-border bg-muted/30">
       <div className="container-main py-12">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+
+          {/* Brand column */}
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="h-9 w-9 rounded-lg gradient-green flex items-center justify-center">
-                <span className="text-white font-bold text-lg">🌿</span>
-              </div>
-              <span className="font-heading font-bold text-lg">{APP_NAME}</span>
-            </div>
+            <Link href="/" className="block mb-4">
+              <Image
+                src="/images/agro-hub-logo.png"
+                alt="Agro Hub"
+                width={140}
+                height={42}
+                className="h-10 w-auto object-contain"
+              />
+            </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              The global agricultural marketplace. Buy and sell crops, livestock, fish, coffee, medicines,
-              seeds and more — from anywhere in the world.
+              The global agricultural marketplace. Buy and sell crops, livestock, fish, coffee,
+              medicines, seeds and more — from anywhere in the world.
             </p>
             <div className="flex gap-3 mt-4 text-xl">
               <span title="Accepts all currencies">💱</span>
@@ -77,9 +82,18 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} {APP_NAME}. All rights reserved.
-          </p>
+          <div className="flex items-center gap-3">
+            <Image
+              src="/images/agro-hub-logo.png"
+              alt="Agro Hub"
+              width={80}
+              height={24}
+              className="h-6 w-auto object-contain opacity-60"
+            />
+            <p className="text-sm text-muted-foreground">
+              © {new Date().getFullYear()} Agro Hub. All rights reserved.
+            </p>
+          </div>
           <div className="flex items-center gap-4 text-sm text-muted-foreground flex-wrap justify-center">
             <span>🌍 Available Worldwide</span>
             <span>•</span>

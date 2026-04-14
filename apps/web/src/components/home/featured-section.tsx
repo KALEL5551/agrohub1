@@ -7,7 +7,7 @@ import { ArrowRight, Star, MapPin, ShieldCheck } from 'lucide-react';
 import { AGRO_SECTORS } from '@/lib/constants';
 import { getProductImageUrl } from '@/lib/utils';
 import { useCurrency } from '@/hooks/use-currency';
-import type { Product } from '@/types';
+import type { Product } from '@/types/database';
 
 interface FeaturedSectionProps {
   products: Product[];

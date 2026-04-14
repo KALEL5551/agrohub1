@@ -4,7 +4,7 @@ import { Star, MapPin, ShieldCheck } from 'lucide-react';
 import { Card, Badge } from '@/components/ui';
 import { formatCurrency, getProductImageUrl } from '@/lib/utils';
 import { AGRO_SECTORS } from '@/lib/constants';
-import type { Product } from '@/types';
+import type { Product } from '@/types/database';
 
 interface ProductCardProps {
   product: Product;

@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { SupplierTable } from '@/components/admin/supplier-table';
-import type { User } from '@/types';
+import type { User } from '@/types/database';
 
 export function AdminSuppliersClient({ suppliers }: { suppliers: User[] }) {
   const router = useRouter();

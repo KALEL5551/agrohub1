@@ -5,7 +5,7 @@ import { Trash2, Plus, Minus } from 'lucide-react';
 import { Button } from '@/components/ui';
 import { useCart } from '@/hooks/use-cart';
 import { formatCurrency, getProductImageUrl } from '@/lib/utils';
-import type { CartItem as CartItemType } from '@/types';
+import type { CartItem as CartItemType } from '@/types/database';
 
 interface CartItemProps {
   item: CartItemType;

@@ -1,6 +1,6 @@
 import { Check, Clock, Truck, Package, AlertTriangle, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import type { OrderStatus } from '@/types';
+import type { OrderStatus } from '@/types/database';
 
 const steps: { status: OrderStatus; label: string; icon: typeof Check }[] = [
   { status: 'pending', label: 'Order Placed', icon: Clock },

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useAuthStore } from '@/store/auth-store';
-import type { Order } from '@/types';
+import type { Order } from '@/types/database';
 
 export function useOrders() {
   const [orders, setOrders] = useState<Order[]>([]);

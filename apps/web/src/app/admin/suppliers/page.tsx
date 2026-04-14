@@ -1,6 +1,6 @@
 import { createServerSupabaseClient } from '@/lib/supabase/server';
 import { AdminSuppliersClient } from '@/components/admin/admin-suppliers-client';
-import type { User } from '@/types';
+import type { User } from '@/types/database';
 
 export const revalidate = 30;
 

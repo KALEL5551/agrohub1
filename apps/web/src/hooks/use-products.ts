@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
-import type { Product, ProductCategory } from '@/types';
+import type { Product, ProductCategory } from '@/types/database';
 
 interface UseProductsOptions {
   category?: ProductCategory;

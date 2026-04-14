@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useAuthStore } from '@/store/auth-store';
-import type { Message, ChatRoom } from '@/types';
+import type { Message, ChatRoom } from '@/types/database';
 
 export function useChatRooms() {
   const [rooms, setRooms] = useState<ChatRoom[]>([]);

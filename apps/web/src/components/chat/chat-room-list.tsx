@@ -4,7 +4,7 @@ import { Avatar, Badge } from '@/components/ui';
 import { formatRelativeTime, truncate } from '@/lib/utils';
 import { useAuthStore } from '@/store/auth-store';
 import { cn } from '@/lib/utils';
-import type { ChatRoom } from '@/types';
+import type { ChatRoom } from '@/types/database';
 
 interface ChatRoomListProps {
   rooms: ChatRoom[];

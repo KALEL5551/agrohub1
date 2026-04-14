@@ -3,7 +3,7 @@ import { Card, Badge } from '@/components/ui';
 import { formatCurrency, formatDate } from '@/lib/utils';
 import { ORDER_STATUS_CONFIG } from '@/lib/constants';
 import { Package, ArrowRight } from 'lucide-react';
-import type { Order } from '@/types';
+import type { Order } from '@/types/database';
 
 interface OrderCardProps {
   order: Order;

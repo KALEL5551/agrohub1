@@ -9,7 +9,7 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { createServerSupabaseClient } from '@/lib/supabase/server';
 import { AGRO_SECTORS } from '@/lib/constants';
-import type { Product } from '@/types';
+import type { Product } from '@/types/database';
 
 export const revalidate = 300;
 

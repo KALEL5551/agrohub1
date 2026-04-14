@@ -2,7 +2,7 @@ import { createServerSupabaseClient } from '@/lib/supabase/server';
 import { Badge } from '@/components/ui';
 import { formatCurrency, formatDate } from '@/lib/utils';
 import { ORDER_STATUS_CONFIG } from '@/lib/constants';
-import type { Order } from '@/types';
+import type { Order } from '@/types/database';
 
 export const revalidate = 30;
 

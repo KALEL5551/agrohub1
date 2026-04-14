@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useOrders } from '@/hooks/use-orders';
 import { OrderCard } from '@/components/orders/order-card';
 import { Spinner, Button } from '@/components/ui';
-import type { OrderStatus } from '@/types';
+import type { OrderStatus } from '@/types/database';
 
 const STATUS_TABS: { value: OrderStatus | 'all'; label: string }[] = [
   { value: 'all', label: 'All' },

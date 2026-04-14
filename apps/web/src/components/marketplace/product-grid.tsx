@@ -1,6 +1,6 @@
 import { ProductCard } from './product-card';
 import { Spinner } from '@/components/ui';
-import type { Product } from '@/types';
+import type { Product } from '@/types/database';
 
 interface ProductGridProps {
   products: Product[];

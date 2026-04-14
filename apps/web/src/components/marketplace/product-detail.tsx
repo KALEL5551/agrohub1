@@ -8,7 +8,7 @@ import { Avatar } from '@/components/ui/avatar';
 import { useCart } from '@/hooks/use-cart';
 import { formatCurrency, getProductImageUrl } from '@/lib/utils';
 import { toast } from 'sonner';
-import type { Product } from '@/types';
+import type { Product } from '@/types/database';
 
 interface ProductDetailProps {
   product: Product;
