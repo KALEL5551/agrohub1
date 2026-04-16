@@ -1,74 +1,50 @@
 'use client';
-
 import { useEffect, useRef, useState } from 'react';
-
-interface StatsBarProps {
-  products: number;
-  suppliers: number;
-  countries: number;
-}
 
 function AnimatedNumber({ target, suffix = '' }: { target: number; suffix?: string }) {
   const [value, setValue] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          const duration = 1800;
-          const steps = 60;
-          const increment = target / steps;
-          let current = 0;
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              setValue(target);
-              clearInterval(timer);
-            } else {
-              setValue(Math.floor(current));
-            }
-          }, duration / steps);
-        }
-      },
-      { threshold: 0.5 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !started.current) {
+        started.current = true;
+        let cur = 0;
+        const step = target / 60;
+        const t = setInterval(() => {
+          cur += step;
+          if (cur >= target) { setValue(target); clearInterval(t); }
+          else setValue(Math.floor(cur));
+        }, 30);
+      }
+    }, { threshold: 0.5 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
   }, [target]);
-
-  return (
-    <span ref={ref}>
-      {value.toLocaleString()}{suffix}
-    </span>
-  );
+  return <span ref={ref}>{value.toLocaleString()}{suffix}</span>;
 }
 
 const STATS = [
-  { label: 'Products Listed',     icon: '🌾', getValue: (s: StatsBarProps) => s.products,   suffix: '+' },
-  { label: 'Verified Suppliers',  icon: '✅', getValue: (s: StatsBarProps) => s.suppliers,  suffix: '+' },
-  { label: 'Countries',           icon: '🌍', getValue: (s: StatsBarProps) => s.countries,  suffix: '+' },
-  { label: 'Crop Varieties',      icon: '🌱', getValue: () => 120,                           suffix: '+' },
-  { label: 'Payment Methods',     icon: '💳', getValue: () => 8,                             suffix: '' },
-  { label: 'Escrow Protected',    icon: '🔒', getValue: () => 100,                           suffix: '%' },
+  { label: 'Products Listed',    icon: '🌾', value: 50000, suffix: '+' },
+  { label: 'Verified Suppliers', icon: '✅', value: 2000,  suffix: '+' },
+  { label: 'Countries',          icon: '🌍', value: 100,   suffix: '+' },
+  { label: 'Crop Varieties',     icon: '🌱', value: 120,   suffix: '+' },
+  { label: 'Payment Methods',    icon: '💳', value: 8,     suffix: '' },
+  { label: 'Escrow Protected',   icon: '🔒', value: 100,   suffix: '%' },
 ];
 
-export function StatsBar(props: StatsBarProps) {
+export function StatsBar() {
   return (
-    <section className="relative z-10 -mt-1 bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-6 py-6">
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
-          {STATS.map((stat) => (
-            <div key={stat.label} className="text-center group">
-              <div className="text-2xl mb-1">{stat.icon}</div>
-              <div className="text-xl md:text-2xl font-black text-green-700 dark:text-green-400 leading-none">
-                <AnimatedNumber target={stat.getValue(props)} suffix={stat.suffix} />
+    <section className="bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 py-5">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-4 text-center">
+          {STATS.map(s => (
+            <div key={s.label}>
+              <div className="text-2xl mb-1">{s.icon}</div>
+              <div className="text-xl md:text-2xl font-black text-green-700 dark:text-green-400">
+                <AnimatedNumber target={s.value} suffix={s.suffix} />
               </div>
-              <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-tight">
-                {stat.label}
-              </div>
+              <div className="text-xs text-gray-500 mt-0.5">{s.label}</div>
             </div>
           ))}
         </div>
