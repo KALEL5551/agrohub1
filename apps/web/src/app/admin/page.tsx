@@ -1,6 +1,7 @@
 import { createServerSupabaseClient } from '@/lib/supabase/server';
 import { StatsCard } from '@/components/admin/stats-card';
 import { CommissionChart } from '@/components/admin/commission-chart';
+import { redirect } from 'next/navigation'; // Added for protection
 import {
   ShoppingCart,
   Users,
@@ -12,6 +13,9 @@ import {
 import { formatCurrency } from '@/lib/utils';
 
 export const revalidate = 60;
+
+// Update this to include your specific email or admin ID
+const ADMIN_EMAIL = 'kaleluthuman45@gmail.com'; 
 
 async function getAdminStats() {
   const supabase = createServerSupabaseClient();
@@ -42,6 +46,17 @@ async function getAdminStats() {
 }
 
 export default async function AdminDashboard() {
+  const supabase = createServerSupabaseClient();
+
+  // --- SECURITY LAYER START ---
+  const { data: { user }, error } = await supabase.auth.getUser();
+
+  // If not logged in, or if the email doesn't match yours, kick them out
+  if (error || !user || user.email !== ADMIN_EMAIL) {
+    redirect('/'); // Redirect to home or login page
+  }
+  // --- SECURITY LAYER END ---
+
   const stats = await getAdminStats();
 
   const chartData = [
