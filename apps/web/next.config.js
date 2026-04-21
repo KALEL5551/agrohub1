@@ -2,13 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   eslint: {
-    // Disable ESLint during production builds on Vercel
-    // Run eslint separately with: npm run lint
     ignoreDuringBuilds: true,
   },
   typescript: {
-    // Allow builds to succeed even with type errors during early development
-    // Remove this line once all type errors are resolved
     ignoreBuildErrors: true,
   },
   images: {
@@ -25,6 +21,21 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: '*.unsplash.com',
+      },
+      {
+        // Google profile pictures (for Google OAuth login)
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      },
+      {
+        // Google user content
+        protocol: 'https',
+        hostname: '*.googleusercontent.com',
+      },
+      {
+        // Facebook profile pictures
+        protocol: 'https',
+        hostname: '*.fbcdn.net',
       },
     ],
   },
