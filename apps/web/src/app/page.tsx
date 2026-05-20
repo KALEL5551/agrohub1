@@ -186,69 +186,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ──── B2B / B2C SPLIT SECTION ──── */}
-        <section className="grid md:grid-cols-2 min-h-[420px]">
-          <div className="relative flex flex-col justify-end p-10 md:p-16 text-white overflow-hidden group bg-gradient-to-br from-green-700 to-emerald-900">
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-green-600/20 rounded-full blur-3xl"></div>
-            <div className="relative z-10">
-              <span className="text-green-200 text-xs font-bold uppercase tracking-widest mb-3 block">For Businesses</span>
-              <h3 className="text-4xl font-bold mb-3 leading-tight">B2B Bulk<br />Trading</h3>
-              <p className="text-green-100/80 mb-6 max-w-xs text-sm">
-                Container-load sourcing, SWIFT payments, trade documentation, and verified suppliers.
-              </p>
-              <Link href="/register?mode=b2b"
-                className="inline-flex items-center gap-2 bg-white text-green-900 font-bold px-6 py-3 rounded-lg text-sm hover:bg-green-50 transition-colors hover:shadow-lg">
-                Start Sourcing <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-          
-          <div className="relative flex flex-col justify-end p-10 md:p-16 text-white overflow-hidden group bg-gradient-to-br from-orange-600 to-red-800">
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-orange-500/20 rounded-full blur-3xl"></div>
-            <div className="relative z-10">
-              <span className="text-orange-100 text-xs font-bold uppercase tracking-widest mb-3 block">For Everyone</span>
-              <h3 className="text-4xl font-bold mb-3 leading-tight">B2C Farm<br />Fresh</h3>
-              <p className="text-orange-100/80 mb-6 max-w-xs text-sm">
-                Order fresh produce directly from farmers. PayPal, card, mobile money accepted.
-              </p>
-              <Link href="/register?mode=b2c"
-                className="inline-flex items-center gap-2 bg-white text-orange-900 font-bold px-6 py-3 rounded-lg text-sm hover:bg-orange-50 transition-colors hover:shadow-lg">
-                Start Shopping <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* ──── FINAL CTA SECTION ──── */}
-        <section className="relative py-24 bg-gradient-to-r from-green-700 via-emerald-700 to-teal-700 dark:from-gray-900 dark:via-green-900 dark:to-gray-900 overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-          </div>
-          
-          <div className="relative max-w-4xl mx-auto px-6 text-center">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Join Thousands of Traders
-            </h2>
-            <p className="text-lg md:text-xl text-green-100 mb-10 max-w-2xl mx-auto">
-              Start trading agricultural products globally. Thousands of farmers and buyers from 100+ countries are already on Agro Hub.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/register">
-                <Button size="lg" className="bg-white text-green-700 hover:bg-green-50 font-bold px-10 py-4 rounded-lg text-lg w-full sm:w-auto">
-                  Create Free Account <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="/products">
-                <Button size="lg" variant="outline"
-                  className="border-2 border-white text-white hover:bg-white/10 font-bold px-10 py-4 rounded-lg text-lg w-full sm:w-auto">
-                  Browse Marketplace
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-
       </main>
       <Footer />
     </>
