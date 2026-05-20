@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model BulkOrder {
+  id        String   @id @default(uuid())
+  product   String
+  quantity  Int
+  grade     String
+  location  String
+  deadline  DateTime
+  status    String   @default("PENDING")
+  createdAt DateTime @default(now())
+}
+
+model SupplierOffer {
+  id        String   @id @default(uuid())
+  orderId   String
+  farmerId  String
+  quantity  Int
+  price     Float
+  createdAt DateTime @default(now())
+}

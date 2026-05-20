@@ -35,8 +35,29 @@ const FOOTER_LINKS = {
     { href: '/sector/fisheries', label: 'Fisheries' },
     { href: '/sector/coffee', label: 'Coffee & Beverages' },
   ],
+<<<<<<< HEAD
   'About Agro Hub': [
     { href: '/about', label: 'About Us' },
+=======
+  'For Buyers': [
+    { href: '/products',  label: 'Browse Products' },
+    { href: '/register',  label: 'Create Account' },
+    { href: '/help',      label: 'How to Buy' },
+    { href: '/shipping',  label: 'Shipping Info' },
+    { href: '/disputes',  label: 'Buyer Protection' },
+    { href: '/bulk-orders', label: 'Request Bulk Supply' },
+  ],
+  'For Sellers': [
+    { href: '/register?role=supplier', label: 'Become a Supplier' },
+    { href: '/listings/new',           label: 'List a Product' },
+    { href: '/help',                   label: 'Seller Guide' },
+    { href: '/admin',                  label: 'Seller Center' },
+  ],
+  Company: [
+    { href: '/about',   label: 'About Us' },
+    { href: '/contact', label: 'Contact' },
+    { href: '/blog',    label: 'Blog' },
+
     { href: '/careers', label: 'Careers' },
     { href: '/news', label: 'News & Blog' },
     { href: '/partners', label: 'Partners' },
@@ -61,6 +82,18 @@ const SOCIAL_LINKS = [
   { icon: 'in', label: 'LinkedIn', href: '#' },
   { icon: '📷', label: 'Instagram', href: '#' },
   { icon: '▶️', label: 'YouTube', href: '#' },
+  { name: 'Visa',       bg: '#1a1f71', color: '#fff',    text: 'VISA' },
+  { name: 'Mastercard', bg: '#fff',    color: '#eb001b', text: '●●' },
+  { name: 'PayPal',     bg: '#003087', color: '#009cde', text: 'Pay' },
+  { name: 'MTN MoMo',   bg: '#ffc72c', color: '#000',    text: 'MTN' },
+  { name: 'Airtel',     bg: '#e40000', color: '#fff',    text: 'Airtel' },
+  { name: 'M-Pesa',     bg: '#00a651', color: '#fff',    text: 'M-P' },
+  { name: 'Stripe',     bg: '#635bff', color: '#fff',    text: 'Str' },
+  { name: 'Apple Pay',  bg: '#000',    color: '#fff',    text: '🍎' },
+  { name: 'G Pay',      bg: '#fff',    color: '#4285f4', text: 'G' },
+  { name: 'SWIFT',      bg: '#002d72', color: '#fff',    text: 'BNK' },
+  { name: 'Crypto',     bg: '#f7931a', color: '#fff',    text: '₿' },
+  { name: 'AmEx',       bg: '#007bc1', color: '#fff',    text: 'AMX' },
 ];
 
 const CURRENCY_FLAGS: Record<string, string> = {
